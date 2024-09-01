@@ -7,7 +7,11 @@ const app = express();
 
 app.get("/",function(req,res){
     
-
+    const url = "https://api.openweathermap.org/data/2.5/weather?q=Pune&appId=0582caf2ba797f537d8b341735ab23ec&units=metric";
+    https.get(url,function(response){
+        console.log(response.statusCode);
+        
+    });
     res.send("Server is up and running");
 })
 
