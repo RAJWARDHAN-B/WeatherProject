@@ -16,8 +16,15 @@ app.get("/",function(req,res){
             const weatherdescription = weatherData.weather[0].description;
             const temp = weatherData.main.temp;
 
-            res.send("The temperature in Pune is: "+ temp + " degrees celsius.");
+            const icon = weatherData.weather[0].icon;
+            const imageURL = "https://openweathermap.org/img/wn/" + icon +"@2x.png";
+
+            res.write("<P>The current weather is " + weatherdescription + "</P>");
+            res.write("<h1>The temperature in Pune is: "+ temp + " degrees celsius.</h1>");
+            res.write("<img src="+imageURL+" >")
+            res.send();
            
+            // WE CAN ONLY HAVE ONE RES.SEND
             console.log(weatherdescription);
         });
         
